@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
      <NavBar />
-     <ItemListContainer msg="Aqui va el texto que va renderizado a ItemListContainer que fue modificado con CSS." />
+     <ItemListContainer greeting={"Hola este es un saludo pasado por la prop greeting."} />
     </div>
   );
 }
