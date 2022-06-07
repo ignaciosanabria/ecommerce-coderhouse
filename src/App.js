@@ -26,9 +26,10 @@ function App() {
     <div>
      <NavBar />
      <ItemListContainer greeting={"Hola este es un saludo pasado por la prop greeting."} />
-     <ItemCount initial={1} stock={5} addOn={addOn}/>
     </div>
   );
 }
+
+//<ItemCount initial={1} stock={5} addOn={addOn}/>
 
 export default App;
