@@ -6,6 +6,8 @@ import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Contacto from './components/Contacto';
 
 
 
@@ -26,10 +28,18 @@ function App() {
 
   return (
     <div>
+      <BrowserRouter>
      <NavBar />
-     {/* <ItemCount initial={1} stock={5} addOn={addOn}/> */}
-     {/*<ItemListContainer greeting={"Hola este es un saludo pasado por la prop greeting."} />*/}
-     <ItemDetailContainer />
+             {/* <ItemCount initial={1} stock={5} addOn={addOn}/> */}
+             {/*<ItemListContainer greeting={"Hola este es un saludo pasado por la prop greeting."} />*/}
+             {/* <ItemDetailContainer /> */}
+      <Routes>
+             <Route path="/" element={<ItemListContainer/>} />
+             <Route path="/category/:id" element={<ItemListContainer/>} />
+             <Route path="/item/:id" element={<ItemDetailContainer/>} />
+             <Route path="/contacto" element={<Contacto/>} />
+       </Routes>
+      </BrowserRouter>
     </div>
   );
 }

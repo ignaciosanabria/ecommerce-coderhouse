@@ -14,9 +14,9 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: darkorange;
     background-clip: border-box;
-    border: 0 solid transparent;
+    border: 2 solid;
     border-radius: 0;
 }
 .card .card-subtitle {

@@ -2,38 +2,69 @@ import React, {useState, useEffect} from 'react';
 import './styles/ItemListContainer.css';
 import ItemList from './ItemList';
 import PanFrances from '../imagenes/panfrances.jpg';
-import Facturas from "../imagenes/facturas.png";
+import PanNegro from '../imagenes/pannegro.jpg';
+import PanMasaMadre from '../imagenes/pandemasamadre.jpg';
 import PastaFrola from "../imagenes/pastafrola.png";
 import SelvaNegra from "../imagenes/selvanegra.png";
-import SandiwchMiga from "../imagenes/sandwichdemiga.jpg"
+import TortaChaja from '../imagenes/tortachaja.png';
+import TortaRedVelvet from '../imagenes/tortaredvelvet.jpg';
+import BolitasFraile from "../imagenes/bolitasdefraile.png";
+import Churros from "../imagenes/churros.jpg";
+import MedialunasGrasa from "../imagenes/medialunasdegrasa.png";
+import MedialunasManteca from "../imagenes/medialunasdemanteca.png";
+import Vigilante from "../imagenes/vigilante.png";
+import TortitasNegras from "../imagenes/tortitasnegras.png";
 
 
+import {useParams} from 'react-router-dom';
+
+let productosComercio = [
+  { id: '1', category:'panes' ,title: "Pan Francés", description: "1 Kilo de Pan Frances", price: 240, pictureUrl: PanFrances },
+  { id: '2', category:'panes' ,title: "Pan Negro", description: "1 Kilo de Pan Negro", price: 240, pictureUrl: PanNegro },
+  { id: '3', category:'panes' ,title: "Pan de Masa Madre", description: "1 Unidad de Pan de Masa Madre", price: 400, pictureUrl: PanMasaMadre },
+  { id: '4', category:'facturas', title: "Bolitas de Fraile", description: "1 Unidad de Bolitas de Fraile", price: 50, pictureUrl: BolitasFraile },
+  { id: '5', category:'facturas', title: "Churros", description: "1 Unidad de Churros", price: 50, pictureUrl: Churros },
+  { id: '6', category:'facturas', title: "Medialunas de Grasa", description: "1 Unidad de Medialunas de Grasa", price: 50, pictureUrl: MedialunasGrasa },
+  { id: '7', category:'facturas', title: "Medialunas de Manteca", description: "1 Unidad de Medialunas de Manteca", price: 50, pictureUrl: MedialunasManteca },
+  { id: '8', category:'facturas', title: "Vigilantes", description: "1 Unidad de Vigilantes", price: 50, pictureUrl: Vigilante },
+  { id: '9', category:'facturas', title: "Tortitas Negras", description: "1 Unidad de Tortitas Negras", price: 50, pictureUrl: TortitasNegras },
+  { id: '10', category:'tortas', title: "Pasta Frola", description: "Pasta Frola con Membrillo", price: 600, pictureUrl: PastaFrola },
+  { id: '11', category:'tortas', title: "Selva Negra", description: "1 Torta Entera de Selva Negra", price: 1200, pictureUrl: SelvaNegra },
+  { id: '12', category:'tortas', title: "Torta Chaja", description: "1 Torta Entera Chaja", price: 1200, pictureUrl: TortaChaja },
+  { id: '13', category:'tortas', title: "Torta Red Velvet", description: "1 Torta Entera de Red Velvet", price: 800, pictureUrl: TortaRedVelvet }
+  ];
+{/*(!id) ? res(productosComercio) : res(productosComercio.filter(item => item.category == id))*/}
 export default function ItemListContainer({greeting}) {
   const [productos, setProductos] = useState([]);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const {id} = useParams(); 
   useEffect(() => {
     
-
     const devolverProductos = new Promise((res, rej) => {
+        setProductos([]);
+        setLoading(true);
+        setError(error);
         setTimeout(() => {
-          res([
-            { id: '1', title: "Pan Francés", description: "1 Kilo de Pan Frances", price: 240, pictureUrl: PanFrances },
-            { id: '2', title: "Facturas", description: "1 Docena de Facturas Surtidas", price: 300, pictureUrl: Facturas },
-            { id: '3', title: "Pasta Frola", description: "Pasta Frola con Membrillo", price: 600, pictureUrl: PastaFrola },
-            { id: '4', title: "Selva Negra", description: "1 Torta Entera de Selva Negra", price: 900, pictureUrl: SelvaNegra },
-            { id: '5', title: "Sandwiches de Miga", description: "1 Docena de Sandwiches de Miga", price: 1200, pictureUrl: SandiwchMiga }
-            ]);
+          (!id) ? res(productosComercio) : res(productosComercio.filter(item => item.category == id))
         }, 2000);
       });
 
       devolverProductos.then((result) => {
         setProductos(result);
+      })
+      .catch((error)=>{
+        setError(error);
+      })
+      .finally(()=>{
+        setLoading(false);
       });
 
-    }, []);
+    }, [id]);
 
   return (
-    <>
+    <>   <div>{loading && 'Cargando información...'}</div>
+         <div>{error && 'Hubo un error en la carga!'}</div>
         <div><ItemList productos={productos}/></div>
     </>
   );
