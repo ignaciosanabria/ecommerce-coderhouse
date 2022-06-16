@@ -1,7 +1,17 @@
 import React from 'react';
+import ItemCount from './ItemCount';
+import {useEffect, useState} from 'react';
+import {useParams, Link} from 'react-router-dom';
 import './styles/ItemDetail.css';
 
 export default function ItemDetail({item}) {
+    const [cantidadItem, setCantidadItem] = useState(0);
+    const [mostrarCart, setMostrarCart] = useState(false);
+        const addOn = (cantidad) =>{
+             setCantidadItem(cantidad);
+             setMostrarCart(true);
+        }
+
   return (
     <div className='container'>
     <div className="card">
@@ -17,7 +27,9 @@ export default function ItemDetail({item}) {
                     <h2 className="mt-5">
                         ${item.price}<small className="text-success">(10%off)</small>
                     </h2>
-                    <button className="btn btn-primary btn-rounded">Comprar ahora</button>
+                    <h3>Stock disponible: {item.stock}</h3>
+                    {!mostrarCart && (<ItemCount initial={1} stock={item.stock} addOn={addOn}/>)}
+                    { mostrarCart && (<div className='carrito'><Link to={'/cart'}><button className="btn btn-secondary btn-lg btn-block">Ir al carrito</button></Link></div>)}
                 </div>
             </div>
         </div>

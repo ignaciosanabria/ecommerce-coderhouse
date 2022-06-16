@@ -9,7 +9,7 @@
 
 .contador_vista {
     font-size: 40px;
-    color: rgb(116, 7, 7);
+    color: black;
 }
 
 .botonContador {
@@ -36,11 +36,12 @@
 }
 
 .reset {
-    width: 100px;
+    width: 120px;
     font-size: 18px;
     padding: 10px 20px;
     background-color: lightgreen;
     color: rgb(16, 0, 54);
+    font-weight: bold;
     border: 1px solid rgb(16, 0, 54);
     transition: 0.2s ease-in-out;
 }

@@ -32,3 +32,12 @@
     width: 450px;
     height: 450px;
 }
+
+.carrito{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 20px;
+}
