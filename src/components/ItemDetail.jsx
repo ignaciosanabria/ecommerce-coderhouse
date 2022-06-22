@@ -1,16 +1,20 @@
 import React from 'react';
 import ItemCount from './ItemCount';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {useParams, Link} from 'react-router-dom';
 import './styles/ItemDetail.css';
+import { MiContexto } from '../context/CartContext';
 
 export default function ItemDetail({item}) {
     const [cantidadItem, setCantidadItem] = useState(0);
     const [mostrarCart, setMostrarCart] = useState(false);
+    const {isInCart, addItem, cart} = useContext(MiContexto);
         const addOn = (cantidad) =>{
              setCantidadItem(cantidad);
              setMostrarCart(true);
-        }
+             isInCart(item.id);
+             addItem(item, cantidad);
+        } 
 
   return (
     <div className='container'>

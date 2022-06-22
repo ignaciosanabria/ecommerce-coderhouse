@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Contacto from './components/Contacto';
 import Cart from './components/Cart';
+import CartContext from './context/CartContext';
 
 
 
@@ -28,11 +29,9 @@ function App() {
 
   return (
     <div>
+      <CartContext>
       <BrowserRouter>
      <NavBar />
-             {/* <ItemCount initial={1} stock={5} addOn={addOn}/> */}
-             {/*<ItemListContainer greeting={"Hola este es un saludo pasado por la prop greeting."} />*/}
-             {/* <ItemDetailContainer /> */}
       <Routes>
              <Route path="/" element={<ItemListContainer/>} />
              <Route path="/category/:id" element={<ItemListContainer/>} />
@@ -41,8 +40,13 @@ function App() {
              <Route path="/cart" element={<Cart />} />
        </Routes>
       </BrowserRouter>
+      </CartContext>
     </div>
   );
 }
 
 export default App;
+
+/* <ItemCount initial={1} stock={5} addOn={addOn}/> */
+/*<ItemListContainer greeting={"Hola este es un saludo pasado por la prop greeting."} />*/
+/* <ItemDetailContainer /> */

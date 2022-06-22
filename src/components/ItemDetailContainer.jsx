@@ -35,7 +35,6 @@ let productosComercio = [
 export default function ItemDetailContainer() {
   const [item, setItem] = useState({});
   const {id} = useParams();
-  console.log("id detail container: "+id); 
 
  {/* setTimeout(() => {
     (!id) ? res({}) : res(productosComercio.find(item => item.id == id))
