@@ -13,7 +13,6 @@ export default function CartContext({ children }) {
      const newItem = {...item, cant}
      if(isInCart(newItem.id))
      {
-        console.log("agrego uno que existe;")
         const findProducto = cart.find(x => x.id === newItem.id)
         const productoIndex = cart.indexOf(findProducto);
         const arrayAux = [...cart];
@@ -28,7 +27,7 @@ export default function CartContext({ children }) {
     setCart([]);
   }
   const deleteItem = (id) => {
-    return setCart(cart.filter(x => x.id !== id));
+    setCart(cart.filter(x => x.id !== id));
   }
 
   const getItemQty = () => {
@@ -38,6 +37,7 @@ export default function CartContext({ children }) {
   const getItemPrice = () => {
     return cart.reduce((acc, x) => acc += x.cant * x.price, 0)
   }
+
 
   return <MiContexto.Provider value={{cart, isInCart, addItem, deleteItem, emptyCart, getItemQty, getItemPrice}}>{children}</MiContexto.Provider>;
 }

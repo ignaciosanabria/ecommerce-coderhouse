@@ -7,13 +7,12 @@ import { MiContexto } from '../context/CartContext';
 
 
 
-
 export default function CartWidget({cant}) {
-  const {getItemQty} = useContext(MiContexto);
+  const {getItemQty, cart} = useContext(MiContexto);
   return (
     <div className="cart-widget">
        <FontAwesomeIcon icon={faCartShopping} size="2x" color="white" />
-       <div className="cant-display">{getItemQty()}</div>
+       {cart.length > 0 && <div className="cant-display">{getItemQty()}</div>}
     </div>
   )
 }
