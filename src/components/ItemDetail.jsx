@@ -23,7 +23,7 @@ export default function ItemDetail({item}) {
             <h3 className="card-title">{item.title}</h3>
             <div className="row">
                 <div className="col-lg-5 col-md-5 col-sm-6">
-                    <div className="white-box text-center"><img src={item.pictureUrl} className="imagen"/></div>
+                    <div className="white-box text-center"><img src={item.image} className="imagen"/></div>
                 </div>
                 <div className="col-lg-7 col-md-7 col-sm-6">
                     <h4 className="box-title mt-5">Descripción Producto:</h4>

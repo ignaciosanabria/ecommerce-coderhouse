@@ -15,6 +15,7 @@ import MedialunasGrasa from '../imagenes/medialunasdegrasa.png';
 import MedialunasManteca from '../imagenes/medialunasdemanteca.png';
 import Vigilante from '../imagenes/vigilante.png';
 import TortitasNegras from '../imagenes/tortitasnegras.png';
+import {doc,getDoc,getFirestore} from 'firebase/firestore';
 
 let productosComercio = [
   { id: '1', category:'panes' ,title: "Pan Francés", description: "1 Kilo de Pan Frances", price: 240, pictureUrl: PanFrances, stock : 20  },
@@ -41,12 +42,19 @@ export default function ItemDetailContainer() {
  }, 2000);*/}
 
   useEffect(() => {
-    const getItem = new Promise((res, rej) => {
+    /*const getItem = new Promise((res, rej) => {
       (!id) ? res({}) : res(productosComercio.find(item => item.id == id))
     });
 
     getItem.then((result) => {
       setItem(result);
+    });*/
+    const db = getFirestore();
+    const productRef = doc(db,'items',id);
+
+    getDoc(productRef)
+    .then((snapshot)=>{
+      setItem({...snapshot.data(), id: snapshot.id});
     });
 
   }, [id]);

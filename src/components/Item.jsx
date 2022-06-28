@@ -6,7 +6,7 @@ export default function Item({item}) {
   return (
      <>
     <div className="card" style={{width: "20rem", margin: 20, backgroundColor: 'orange'}}>
-      <img className="card-img-top" src={item.pictureUrl}></img>
+      <img className="card-img-top" src={item.image}></img>
       <div className="card-body">
         <h5 className="card-title">{item.title}</h5>
         <p className="card-text">Descripción: {item.description}</p>

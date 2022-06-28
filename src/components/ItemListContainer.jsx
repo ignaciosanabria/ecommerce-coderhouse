@@ -14,6 +14,7 @@ import MedialunasGrasa from "../imagenes/medialunasdegrasa.png";
 import MedialunasManteca from "../imagenes/medialunasdemanteca.png";
 import Vigilante from "../imagenes/vigilante.png";
 import TortitasNegras from "../imagenes/tortitasnegras.png";
+import {collection,getDocs,getFirestore,query,where} from 'firebase/firestore';
 
 
 import {useParams} from 'react-router-dom';
@@ -41,7 +42,7 @@ export default function ItemListContainer({greeting}) {
   const {id} = useParams(); 
   useEffect(() => {
     
-    const devolverProductos = new Promise((res, rej) => {
+    /*const devolverProductos = new Promise((res, rej) => {
         setProductos([]);
         setLoading(true);
         setError(error);
@@ -58,7 +59,40 @@ export default function ItemListContainer({greeting}) {
       })
       .finally(()=>{
         setLoading(false);
-      });
+      });*/
+
+      const db = getFirestore();
+
+      const productsCollection = collection(db,'items');
+      if(id)
+      {
+        const q = query(productsCollection, where('categoryId','==',id))
+        getDocs(q)
+        .then((snapshot) => {
+           setProductos(
+             snapshot.docs.map((doc) => ({...doc.data(),id: doc.id}))
+           )
+        })
+        .catch((error)=> {
+           setError(error);
+        })
+        .finally(()=>{
+         setLoading(false);
+        })
+      } else {
+         getDocs(productsCollection)
+         .then((snapshot) => {
+            setProductos(
+              snapshot.docs.map((doc) => ({...doc.data(),id: doc.id}))
+            )
+         })
+         .catch((error)=> {
+            setError(error);
+         })
+         .finally(()=>{
+          setLoading(false);
+         })
+      }
 
     }, [id]);
 
