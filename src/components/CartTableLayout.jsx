@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from 'react';
 import { MiContexto } from '../context/CartContext';
+import { Link} from 'react-router-dom';
 
 export default function CartTableLayout({cart}) {
   const {emptyCart,deleteItem,getItemPrice} = useContext(MiContexto);
@@ -49,7 +50,7 @@ export default function CartTableLayout({cart}) {
                      <h6></h6>
                      </div>
                   </div>
-                  <button className="btn btn-success" style={{margin: '50px'}}>Finalizar Compra</button>
+                  <Link to={'/checkout'}><button className="btn btn-success" style={{margin: '50px'}}>Finalizar Compra</button></Link>
                   <button className="btn btn-danger" style={{marginLeft: '50px'}} onClick={emptyCart}>Vaciar carrito</button>
                 </div>
               </div>
