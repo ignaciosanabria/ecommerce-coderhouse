@@ -1,0 +1,30 @@
+form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  label {
+    line-height: 2;
+    text-align: left;
+    display: block;
+    margin-bottom: 13px;
+    margin-top: 20px;
+    color: blue;
+    font-size: 25px;
+    font-weight: 200 bold;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  b {
+    color: #bf1650;
+  }
+  
+  b::before {
+    display: inline;
+    content: "⚠ ";
+  }
+
+  

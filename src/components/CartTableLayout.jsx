@@ -21,6 +21,7 @@ export default function CartTableLayout({cart}) {
                     <table className="table">
                       <thead>
                         <tr>
+                          <th>Imagen</th>
                           <th>Nombre</th>
                           <th>Cantidad</th>
                           <th>Precio Unitario</th>
@@ -32,6 +33,7 @@ export default function CartTableLayout({cart}) {
                       {cart && cart.map((item) => (
                         <>
                        <tr>
+                         <td><img src={item.image} style={{width:'70px',height:'50px',border:'3px solid black'}}/></td>
                          <td>{item.title}</td>
                          <td>{item.cant}</td>
                          <td>${item.price}</td>

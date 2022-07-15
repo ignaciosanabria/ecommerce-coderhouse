@@ -2,8 +2,8 @@ import React from 'react';
 import {useContext, useState} from 'react';
 import { MiContexto } from '../context/CartContext';
 import CheckoutFinal from './CheckoutFinal';
-import CheckoutForm from './CheckoutForm';
 import { addDoc, collection, getFirestore} from 'firebase/firestore';
+import CheckoutForm from './CheckoutForm';
 
 export default function Checkout() {
   const [mostrarForm,setMostrarForm] = useState(true);
@@ -12,26 +12,26 @@ export default function Checkout() {
 
   const db = getFirestore();
   const orderCollection = collection(db,'orders');
-
-
-  function handleClick(name,email,cel) {
+ 
+   function onSubmit(data) {
+    //console.log("Datos OnSubmit: "+JSON.stringify(data));
     const total = getItemPrice();
     const order = {
-        buyer : {name, email, cel},
+        buyer : {name: data.name, email: data.email, cel: data.cel},
         items : cart,
         total : total
     }
-    //console.log(order);
+    console.log("order: "+JSON.stringify(order));
     addDoc(orderCollection, order).then(({id}) =>{
       setIdOrder(id);
       emptyCart();
       setMostrarForm(false);
-    }) 
-    //console.log(mostrarForm);
-}
+    });
+   }
+
   return (
     <>
-     {mostrarForm && <CheckoutForm handleClick={handleClick}/>}
+     {mostrarForm && <CheckoutForm onSubmit={onSubmit}/>}
      {!mostrarForm && <CheckoutFinal idOrder={idOrder}/>}
     </>
   )

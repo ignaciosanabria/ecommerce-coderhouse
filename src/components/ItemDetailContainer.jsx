@@ -1,23 +1,10 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
-import PanFrances from '../imagenes/panfrances.jpg';
 import ItemDetail from './ItemDetail';
-import PastaFrola from '../imagenes/pastafrola.png';
-import SelvaNegra from '../imagenes/selvanegra.png';
 import {useParams} from 'react-router-dom';
-import PanNegro from '../imagenes/pannegro.jpg';
-import PanMasaMadre from '../imagenes/pandemasamadre.jpg';
-import TortaChaja from '../imagenes/tortachaja.png';
-import TortaRedVelvet from '../imagenes/tortaredvelvet.jpg';
-import BolitasFraile from '../imagenes/bolitasdefraile.png';
-import Churros from '../imagenes/churros.jpg';
-import MedialunasGrasa from '../imagenes/medialunasdegrasa.png';
-import MedialunasManteca from '../imagenes/medialunasdemanteca.png';
-import Vigilante from '../imagenes/vigilante.png';
-import TortitasNegras from '../imagenes/tortitasnegras.png';
 import {doc,getDoc,getFirestore} from 'firebase/firestore';
 
-let productosComercio = [
+/*let productosComercio = [
   { id: '1', category:'panes' ,title: "Pan Francés", description: "1 Kilo de Pan Frances", price: 240, pictureUrl: PanFrances, stock : 20  },
   { id: '2', category:'panes' ,title: "Pan Negro", description: "1 Kilo de Pan Negro", price: 240, pictureUrl: PanNegro, stock : 30},
   { id: '3', category:'panes' ,title: "Pan de Masa Madre", description: "1 Unidad de Pan de Masa Madre", price: 400, pictureUrl: PanMasaMadre, stock : 15 },
@@ -31,7 +18,7 @@ let productosComercio = [
   { id: '11', category:'tortas', title: "Selva Negra", description: "1 Torta Entera de Selva Negra", price: 1200, pictureUrl: SelvaNegra, stock : 8 },
   { id: '12', category:'tortas', title: "Torta Chaja", description: "1 Torta Entera Chaja", price: 1200, pictureUrl: TortaChaja, stock : 8 },
   { id: '13', category:'tortas', title: "Torta Red Velvet", description: "1 Torta Entera de Red Velvet", price: 800, pictureUrl: TortaRedVelvet, stock : 10 }
-  ];
+  ];*/
 
 export default function ItemDetailContainer() {
   const [item, setItem] = useState({});

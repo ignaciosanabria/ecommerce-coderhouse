@@ -15,6 +15,7 @@ import MedialunasManteca from "../imagenes/medialunasdemanteca.png";
 import Vigilante from "../imagenes/vigilante.png";
 import TortitasNegras from "../imagenes/tortitasnegras.png";
 import {collection,getDocs,getFirestore,query,where} from 'firebase/firestore';
+import { ClipLoader } from 'react-spinners';
 
 
 import {useParams} from 'react-router-dom';
@@ -35,7 +36,10 @@ let productosComercio = [
   { id: '13', category:'tortas', title: "Torta Red Velvet", description: "1 Torta Entera de Red Velvet", price: 800, pictureUrl: TortaRedVelvet, stock : 10 }
   ];
 {/*(!id) ? res(productosComercio) : res(productosComercio.filter(item => item.category == id))*/}
+
+
 export default function ItemListContainer({greeting}) {
+
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -97,7 +101,8 @@ export default function ItemListContainer({greeting}) {
     }, [id]);
 
   return (
-    <>   <div>{loading && 'Cargando información...'}</div>
+    <>   
+         <div>{loading && <ClipLoader color={'blue'} cssOverride={{display: "block",margin: "0 auto"}}loading={loading} size={150} />}</div>
          <div>{error && 'Hubo un error en la carga!'}</div>
         <div><ItemList productos={productos}/></div>
     </>
