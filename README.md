@@ -1,75 +1,35 @@
-<<<<<<< HEAD
-# ecommerce-coderhouse
-Proyecto de una Ecommerce programado con React para Coderhouse.
-=======
-# Getting Started with Create React App
+# Panadería Luna 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción del Proyecto
 
-## Available Scripts
+El proyecto consiste en un ecommerce en la cual se puede filtrar los productos en 3 categorias principales (panes, facturas y tortas) y acceder al detalle de cada producto. Es posible agregarlos al carrito y luego complementar el formulario para generar una orden de compra, generando un ID de compra al final del proceso.
 
-In the project directory, you can run:
+Toda la base de datos de productos, se almacena y se gestiona en `Firebase`
 
-### `npm start`
+Este proyecto fue desarrollado por Ignacio Sanabria para el curso de `React JS` de la academia `Coderhouse`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+El proyecto se encuentra deployado en el siguiente enlace: [https://ecommerce-coderhouse-f56e6.web.app](https://ecommerce-coderhouse-f56e6.web.app)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Si preferís correrlo de manera local, seguí los siguientes pasos:
 
-### `npm test`
+1. Descargá el proyecto de este repositorio.
+2. Abrí el directorio del proyecto con cualquier editor de código.
+3. Ejecuta en la terminal del editor el comando 'npm start'
+4. Abrí la ruta http://localhost:3000 para verlo en tu navegador y vas a ver ejecutado el proyecto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Librerías utilizadas para el proyecto
 
-### `npm run build`
+1. Bootstrap: Librería utilizada para el armado de la Navbar y los Card que te permiten visualizar los items de los productos. [https://github.com/twbs/bootstrap](https://github.com/twbs/bootstrap)
+2. React-hook-form: Librería utilizada para generar las validaciones al formulario del Checkout. [https://react-hook-form.com](https://react-hook-form.com)
+3. React Spinners: Librería utilizada para los spinners de espera para la carga de datos. [https://www.davidhu.io/react-spinners](https://www.davidhu.io/react-spinners)
+4. React-router-dom: Librería utilizada para el ruteo de la aplicación en si. [https://github.com/remix-run/react-router](https://github.com/remix-run/react-router)
+5. Firebase: Es la plataforma que gestiona y administra el acceso a la base de datos de la aplicación. Nos proporciona los metodos para traer los datos y poder dar de altas registros. [https://firebase.google.com/firebase](https://firebase.google.com/firebase)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## GIF del Proyecto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![React App - 15 Julio de 2022](https://i.ibb.co/tszkgwW/eb7b7235-9797-4c14-8fba-20b8d72981ac-2.gif)
 
-### `npm run eject`
+## Sugerencias y/o errores
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 971c611 (Primer commit)
+Si encontras algo que no te guste o que necesite un cambio comunicate con ignaciosanabria@outlook.com

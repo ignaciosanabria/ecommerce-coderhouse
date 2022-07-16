@@ -5,7 +5,6 @@ import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import Contacto from './components/Contacto';
 import Cart from './components/Cart';
 import CartContext from './context/CartContext';
 import Checkout from './components/Checkout';
@@ -37,7 +36,6 @@ function App() {
              <Route path="/" element={<ItemListContainer/>} />
              <Route path="/category/:id" element={<ItemListContainer/>} />
              <Route path="/item/:id" element={<ItemDetailContainer/>} />
-             <Route path="/contacto" element={<Contacto/>} />
              <Route path="/cart" element={<Cart />} />
              <Route path="/checkout" element={<Checkout />} /> 
        </Routes>
